@@ -45,7 +45,8 @@ mainParams.specParams.params = struct(...
     'err',      0,...                       % 0 for no error bars
     'trialave', 0);                         % 0 for no average across trial/channels
 
-mainParams.specParams.freqBands = [0 100; 0 4; 4 8; 1 16; 8 16; 16 30; 0 40; 20 40; 40 80; 80 100];
+mainParams.specParams.freqBands = [0 100; 0 4; 4 10; 1 18; 8 18; 16 30; 0 40; 20 40; 40 80; 80 100];
+
 mainParams.specParams.doTrials = false;      % true to calculate psectrogram for each trial, false otherwise
 
 clear TW K fMin fMax window windstep

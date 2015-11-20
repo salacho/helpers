@@ -1,5 +1,5 @@
-function [hPlot,hLine,hAxes] = plotEEGcap(dataVals,timeVals,plotInfo,layout)
-% function [hPlot,hLine,hAxes] = plotEEGcap(dataVals,timeVals,plotInfo,layout)
+function [hPlot,hLine,hAxes,hSub] = plotEEGcap(dataVals,timeVals,plotInfo,layout,dataVals2)
+% function [hPlot,hLine,hAxes,hSub] = plotEEGcap(dataVals,timeVals,plotInfo,layout,dataVals2)
 %
 % Plots in the eegCap layout the dataVals using the x-axis in timeVals
 %
@@ -9,17 +9,26 @@ function [hPlot,hLine,hAxes] = plotEEGcap(dataVals,timeVals,plotInfo,layout)
 % plotInfo:         structure. Has info for detrending and plot properties
 % layout:           structure. Has eegCap subplot layout values. nRows,
 %                   nColms, and the proper location of subplot params.
+% dataVals2:        matrix. [nChs, nSamps] Seocndary set of traces to plot.
+% 
 % OUTPUT
 % hPlot:            matrix. subplot handle for each channel. 
 % hLine:            vector. Handles for the lines setting a specific event
+% hSub:             vector. Subplot handle
 %
 % Andres    : v1    : init. 09 Nov. 2015. Based on code from 2013 for EEG SMR analysis.
 
+if nargin == 5
+    tracesVals.corrVals = (dataVals);
+    tracesVals.incorrVals = (dataVals2);
+    %ErrorInfo.plotInfo.xcorrelHoldOn
+else
+    tracesVals.dataVals = (dataVals);
+end
 
 %% Get Max-Min ranges
-tracesVals.dataVals = (dataVals);
 maxMinVals = getMaxMin(tracesVals,plotInfo.epochDetrend);
-nPlots = length(tracesVals); hLine = [];
+nPlots = length(fields(tracesVals)); hLine = [];
 
 %% Plot parameters
 [nChs,nSamps] = size(dataVals);
@@ -37,9 +46,11 @@ for iAve = 1:nPlots%nPlots:-1:1
         iCh = layout.subplot.layout(iSub);
         if iCh ~= 0
             % Proper layout in subplot space based on EEG electrode location
-            subplot(layout.subplot.nRows,layout.subplot.nCols,iSub)
+            hSub(iCh) = subplot(layout.subplot.nRows,layout.subplot.nCols,iSub);
             
             %% Time traces
+            %if ErrorInfo.plotInfo.xcorrelHoldOn, hold on, end       % to superimpose other traces
+            
             % Detrend data before potting?
             if plotInfo.epochDetrend, hPlot(iCh,iAve) = plot(timeVals,detrend(plotVals(iCh,:)),'color',plotInfo.colorErrP(iAve,:));   %#ok<*NODEF>
             else hPlot(iCh,iAve) = plot(timeVals,plotVals(iCh,:),'color',plotInfo.colorErrP(iAve,:));

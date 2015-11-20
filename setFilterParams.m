@@ -39,7 +39,7 @@ switch filtType
             elseif(freqRange(2) == FNyquist) && (freqRange(1) > 0)
                 [FiltParams.b,FiltParams.a] = butter(filtOrder, freqRange(1)/FNyquist, 'high');
             else
-                warning('Filter upper limit (%i Hz) is higher than Nyquist frequency (%i Hz)',freqRange(2),FNyquist);
+                warning('Filter upper limit (%i Hz) is higher than Nyquist frequency (%i Hz) so no filter will be performed!!',freqRange(2),FNyquist);
                 FiltParams.b = 0;
                 FiltParams.a = 0;
             end

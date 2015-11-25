@@ -5,7 +5,9 @@ function [xyDist,normDist,eloc] = getLayoutWeighNearNeigh(ErrorInfo,plotDist)
 % that are closer, weighted by its distance to the center electrode
 %
 % INPUT
-% ErrorInfo.dirs.asciiLoc:  ascii file with extension *.loc read by readlocs.m file (eeglab)
+% ErrorInfo.dirs.asciiLoc:  ascii file with extension *.loc read by readlocs.m file (eeglab) 
+%                           for bciChallenge data only, or for other data not coded in 
+%                           eegPreAmpConfig.m (see 'eegErrPs' folder) 
 % maxDist:                  double. Max. distance to set neighbor channels. After visual 
 %                           inspection of 56 channel for BCI challenge@NER2015, between 
 %                           0.35 and 0.4 seem to be the most appropriate one.

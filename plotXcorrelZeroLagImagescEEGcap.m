@@ -13,7 +13,7 @@ function plotXcorrelZeroLagImagescEEGcap(r0CorrIncorr,nCorrTrials,ErrorInfo)
 % Andres    :   v1  :   init. 12 Nov. 2015
 
 hFig = figure; set(hFig,'PaperPositionMode','auto','Position',[ 1601 -123  1280 948],'name',...
-    ErrorInfo.plotInfo.title,'NumberTitle','off','Visible',ErrorInfo.plotInfo.visible);
+    char(ErrorInfo.plotInfo.title),'NumberTitle','off','Visible',ErrorInfo.plotInfo.visible);
 
 % Params
 nTrials = size(r0CorrIncorr,3);

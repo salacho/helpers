@@ -14,6 +14,8 @@ function plotXcorrelCorrIncorrZeroeEEGcap(rCorrVals,rIncorrVals,onlyCorrTrials,E
 %
 % Andres    :   v1  : init. 16 Nov. 2013
 
+$$$$$$$$$$$$$$
+
 ErrorInfo.plotInfo.visible = 'on';
 ErrorInfo.plotInfo.epochDetrend = 0;
 ErrorInfo.plotInfo.equalLimits = 0;
@@ -27,6 +29,7 @@ hFig = figure; set(hFig,'PaperPositionMode','auto','Position',[1 41 1600 784],'n
 
 % Plot iSub
 hAxes = []; hSub = []; hImag = []; hBar = []; 
+%%%%%%%
 for iSub = 1:2;
     % Txt
     lagsText{iSub} = sprintf('eegCapZeroLag-%s-rmBadTrials%0.1f',dataType{iSub},ErrorInfo.signalProcess.rmBadTrials*ErrorInfo.signalProcess.badChStDevFactor);
@@ -44,6 +47,7 @@ for iSub = 1:2;
     title(ErrorInfo.plotInfo.title{iSub})
     hBar = colorbar('eastoutside');
 end
+%%%%
 
 set(hAxes,'FontSize',ErrorInfo.plotInfo.axisFontSz-8); 
 
@@ -57,7 +61,7 @@ if ~isfield(ErrorInfo.dirs.saveFolder,ErrorInfo.plotInfo.newFolder)
 end
 
 
-$$$$$$$$
+
 
 %% Save figure
 % Folder where files will be saved

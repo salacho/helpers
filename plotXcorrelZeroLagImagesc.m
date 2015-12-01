@@ -11,6 +11,7 @@ xVals = 1:nChs;
 yVals = 1:nTrials;
 
 if logData, logTxt = 'logReal '; else logTxt = ''; end
+hFig = figure; set(hFig,'PaperPositionMode','auto','Position',[1          41        1600         784],'name',sprintf('%s',logTxt),'NumberTitle','off','Visible','on');
 
 %% Clims
 if ErrorInfo.plotInfo.doClims

@@ -31,7 +31,7 @@ for iCh = 1:nChs
     saveFilename = fullfile(ErrorInfo.dirs.saveFolder,ErrorInfo.plotInfo.newFolder,sprintf('%s-ch%i-%s',saveTxt,iCh,ErrorInfo.dirs.saveFileSuffix));
     
     % Figure properties
-    hFig = figure; set(hFig,'PaperPositionMode','auto','Position',[1805 86 985 683],'name',sprintf('%s-ch%i',saveTxt,iCh),'NumberTitle','off','Visible','on');
+    hFig = figure; set(hFig,'PaperPositionMode','auto','Position',[1          41        1600         784],'name',sprintf('%s-ch%i',saveTxt,iCh),'NumberTitle','off','Visible','on');
     % Plot
     imagesc(lagList,trialList,squeeze(xcorrMeanVals(iCh,:,:)));
     set(gca,'YDir','normal'), hold on, 

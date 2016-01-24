@@ -16,6 +16,9 @@ function zScoredData = zScoreData(dataOrig)
 %                     as it should have been done since the beginning. 23 Jan 2016
 
 if ndims(dataOrig) == 2     %#ok<*ISMAT>
+        dataMean = repmat(mean(dataOrig,2),[1 size(dataOrig,2)]);           % whole channel mean
+        dataStDev = repmat(std(dataOrig,0,2),[1 size(dataOrig,2)]);
+        zScoredData =  (dataOrig - dataMean)./dataStDev;
 elseif ndims(dataOrig) == 3
     % pre-allocate memory
     zScoredData = nan(size(dataOrig));

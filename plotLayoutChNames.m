@@ -1,4 +1,4 @@
-function plotLayoutChNames(session)
+function plotLayoutChNames(session,paradigmType)
 % function plotLayoutChNames(session)
 %
 % Plots the names of the channels in the layout to properly select the
@@ -9,11 +9,11 @@ function plotLayoutChNames(session)
 %
 % Andres    : v1    : init. 21 Aug 2015
 
-% session = '001-20150820';
+% session = '001-20150820'; paradigmType = 'eegBaxter';
 % Paths and dirs
 
-warning('on','all'), paradigmType = 'eegBaxter';
-dirs = eegBaxterDirs(paradigmType); 
+warning('on','all'), 
+dirs = eegErrDirs(paradigmType); 
 % Set default params
 iRun = 0;           % zero for all population trials, all session, not only one run/block.
 ErrorInfo = eegBaxterSetDefaultParams(session,iRun,dirs,1,paradigmType);    % For eegBaxterMain.m and binaryBCI.m decodeOnly must be false; ErrorInfo.epochInfo.decodOnly = 0;  % Not only decoding trials since now no decoding is happening.

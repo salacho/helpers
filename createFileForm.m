@@ -1,6 +1,11 @@
 function [fileName] = createFileForm(decoder,ErrorInfo,fileType)
 % function [fileName] = createFileForm(decoder,ErrorInfo,fileType)
 %
+% Creates different strings to name files, for loading or saving.  
+%
+%
+% INPUT
+%
 % fileType:         string. Type of file to create. Cad be:
 %                   'decoder'
 %                   ''
@@ -34,7 +39,8 @@ switch lower(decoder.dcdType)
     case 'regress',     dcdStrg = 'reg';
     case 'logitreg',    dcdStrg = 'log';
     case 'lda',         dcdStrg = 'lda';
-    case 'l1',         dcdStrg = 'l1';
+    case 'riemman',     dcdStrg = 'rie';
+    case 'l1',          dcdStrg = 'l1';
     otherwise, error('Decoder type does not exist for now...')
 end
 

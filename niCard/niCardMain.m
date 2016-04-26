@@ -1,5 +1,5 @@
-function [niData,niTime,niConfigParams] = mainNIcard(devNumber,doTesting, numTrials)
-% function [niData,niTime,niConfigParams] = mainNIcard(devNumber,doTesting,numTrials)
+function [niData,niTime,niConfigParams] = niCardMain(devNumber,doTesting, numTrials)
+% function [niData,niTime,niConfigParams] = niCardMain(devNumber,doTesting,numTrials)
 %
 % Acquires and writes data from a NI card specificed by devNumber (number of deviced available in the computer).
 % Saves data and time stamp

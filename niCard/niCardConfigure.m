@@ -1,5 +1,5 @@
-function [niSession,niChs,clockSession,listHandle] = configureNIcard(devNumber,niConfigParams)
-% function [niSession,niChs,clockSession,listHandle] = configureNIcard(devNumber,niConfigParams)
+function [niSession,niChs,clockSession,listHandle] = niCardConfigure(devNumber,niConfigParams)
+% function [niSession,niChs,clockSession,listHandle] = niCardConfigure(devNumber,niConfigParams)
 %
 % Configures the selected NI cards based with the device number "devNumber"
 % All parameters for the device configuration are in "niConfigParams"

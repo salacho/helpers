@@ -39,7 +39,8 @@ end
 if nargin < 4, typeElectSelect = 'all'; end
 
 %% Select electrodes
-outChannels = eegSelectChannels(ErrorInfo,typeElectSelect);
+%outChannels = eegSelectChannels(ErrorInfo,typeElectSelect);
+outChannels = 1:48;
 
 %% Load file
 if ErrorInfo.bciChallenge

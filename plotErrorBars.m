@@ -21,6 +21,12 @@ function [plotErr] = plotErrorBars(xVals,meanVals,lowStd,upStd,plotParams)
 % plotParams:       structure. Contains the colors used for the mean and
 %                   low/upStd values: plotColors(1,:), the line width:
 %                   lineWidth and line style: lineStyle.
+%                   plotParams.plotColors(1,:) is the color vector used for the plot.
+%                   plotParams.lineStyle is a string with the line style
+%                   for the plot. Can be '-', '.',':', etc
+%
+% Andres    :   v2      : init. 2014
+% 
 
 % Default line style
 if ~isfield(plotParams,'lineStyle')
